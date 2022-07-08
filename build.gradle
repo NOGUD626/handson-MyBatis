@@ -1,9 +1,10 @@
 plugins {
     id 'java'
-    id "io.freefair.lombok" version "6.5.0.2"
+    id 'io.freefair.lombok' version '6.5.0.2'
+    id 'application'
 }
 
-group 'org.example'
+group 'handson'
 version '1.0-SNAPSHOT'
 
 repositories {
@@ -11,10 +12,11 @@ repositories {
 }
 
 dependencies {
-    implementation("org.mybatis:mybatis:3.5.10")
-    implementation("mysql:mysql-connector-java:8.0.29")
+    implementation('org.mybatis:mybatis:3.5.10')
+    implementation('mysql:mysql-connector-java:8.0.29')
+    implementation 'org.modelmapper:modelmapper:2.3.0'
     implementation('org.projectlombok:lombok:1.16.16')
-//    annotationProcessor 'org.projectlombok:lombok:1.16.16'
+    implementation('org.mybatis.scripting:mybatis-freemarker:1.2.3')
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
 }
@@ -22,3 +24,5 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+
+mainClassName = 'handson.App'

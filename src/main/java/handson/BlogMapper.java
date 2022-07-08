@@ -1,8 +1,12 @@
 package handson;
 
+import org.apache.ibatis.annotations.Lang;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.mybatis.scripting.freemarker.FreeMarkerLanguageDriver;
 
 public interface BlogMapper {
-    @Select("SELECT * FROM blogs WHERE id = #{id}")
-    Blog selectBlog(int id);
+    @Lang(FreeMarkerLanguageDriver.class)
+    @Select("SELECT * FROM blogs WHERE id = <@p value=id/>")
+    Blog selectBlog(@Param("id") int id);
 }
